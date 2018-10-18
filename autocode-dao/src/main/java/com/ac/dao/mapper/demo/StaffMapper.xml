@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ac.dao.mapper.demo.StaffMapper">
+
+    <insert id="insert" parameterType="com.ac.dao.entity.StaffEty" useGeneratedKeys="true" keyProperty="id">
+        insert into staff(
+        id,name,age,birthday,email)
+        values (
+        #{id},#{name},#{age},#{birthday},#{email}
+        )
+    </insert>
+
+    <select id="selectById" parameterType="long" resultType="com.ac.dao.entity.StaffEty">
+        select * from staff where id=#{value}
+    </select>
+
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM staff WHERE id=#{value}
+    </delete>
+
+    <select id="selectByEntity" parameterType="com.ac.dao.entity.StaffEty" resultType="com.ac.dao.entity.StaffEty">
+        SELECT * from staff
+        <where>
+            <if test="id != null "> AND id=#{id}</if>
+            <if test="name != null  and name != ''"> AND name=#{name}</if>
+            <if test="age != null "> AND age=#{age}</if>
+            <if test="birthday != null "> AND birthday=#{birthday}</if>
+            <if test="email != null  and email != ''"> AND email=#{email}</if>
+        </where>
+        <if test="extLimit == null"> order by id desc</if>
+        <if test="extLimit != null">
+            <if test="extLimit.sort == null"> order by id desc</if>
+            <if test="extLimit.sort != null"> order by ${extLimit.sort} ${extLimit.dir}</if>
+            <if test="extLimit.limit != null"> limit ${extLimit.start}, ${extLimit.limit}</if>
+        </if>
+    </select>
+
+    <update id="updateById" parameterType="com.ac.dao.entity.StaffEty">
+        UPDATE staff
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="age != null">age=#{age},</if>
+            <if test="birthday != null">birthday=#{birthday},</if>
+            <if test="email != null">email=#{email},</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectByLimit" parameterType="com.ac.dao.entity.StaffEty" resultType="com.ac.dao.entity.StaffEty">
+        SELECT * from staff
+        <where>
+            <if test="ety.id != null "> AND id=#{ety.id}</if>
+            <if test="ety.name != null  and ety.name != ''"> AND name=#{ety.name}</if>
+            <if test="ety.age != null "> AND age=#{ety.age}</if>
+            <if test="ety.birthday != null "> AND birthday=#{ety.birthday}</if>
+            <if test="ety.email != null and ety.email != ''"> AND email=#{ety.email}</if>
+        </where>
+        <if test="limit == null"> order by id desc</if>
+        <if test="limit != null">
+            <if test="limit.sort == null"> order by id desc</if>
+            <if test="limit.sort != null"> order by ${limit.sort} ${limit.dir}</if>
+            <if test="limit.limit != null"> limit ${limit.start}, ${limit.limit}</if>
+        </if>
+    </select>
+
+    <select id="selectLimitCount" parameterType="com.ac.dao.entity.StaffEty" resultType="long">
+        SELECT count(1) from staff
+        <where>
+            <if test="id != null "> AND id=#{id}</if>
+            <if test="name != null  and name != ''"> AND name=#{name}</if>
+            <if test="age != null "> AND age=#{age}</if>
+            <if test="birthday != null "> AND birthday=#{birthday}</if>
+            <if test="email != null  and email != ''"> AND email=#{email}</if>
+        </where>
+    </select>
+</mapper>
