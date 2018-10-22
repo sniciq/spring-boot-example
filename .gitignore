@@ -2,3 +2,7 @@
 .idea/
 target/*
 
+autocode-start/target/
+autocode-common/target
+autocode-dao/target/
+autocode-service/target/

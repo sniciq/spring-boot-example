@@ -1,0 +1,102 @@
+/*--------------------------------- menu start */
+.docs-menu,
+.docs-menu ul {
+  list-style: none;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.docs-menu li {
+  margin: 0;
+}
+.docs-menu > li:nth-child(1) {
+  border-top: none;
+}
+
+.md-whiteframe-glow-z1 {
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14),
+              0px 0px 2px 2px rgba(0, 0, 0, 0.098),
+              0px 0px 5px 1px rgba(0, 0, 0, 0.084);
+}
+
+.docs-menu > li .md-button {
+	border-left: 3px solid transparent;
+}
+
+.docs-menu .md-button:HOVER {
+	/* color:#fff; */
+	border-left-color: #0288d1;
+	background-color: rgba(158,158,158,0.2);
+	transition: background-color .3s;
+}
+
+.docs-menu .md-button.active {
+	/* color:#fff; */
+	border-left-color: #1976D2;
+	/* background-color: #1e282c; */
+	/* box-shadow: 0 -1px 0 rgba(0,0,0,0.12) inset!important; */
+	color: #1976D2;
+    font-weight: bold;
+}
+
+.docs-menu .md-button {
+  font-size: 14px;
+  border-radius: 0;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  align-items: inherit;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 0px 16px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  width: 100%;
+}
+
+.docs-menu .md-button i {
+	line-height: 40px;
+	padding-right: 5px;
+}
+
+.docs-menu .md-toggle-icon {
+	font-size: 18px;
+}
+
+	
+.menu-toggle-list {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: height;
+  -moz-transition: 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: height;
+  transition: 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: height;
+}
+.docs-menu .menu-toggle-list .md-button {
+  display: block;
+  padding: 0 16px 0 32px;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+}
+
+.md-button-toggle .md-toggle-icon {
+  display: block;
+  margin-left: auto;
+  speak: none;
+  vertical-align: middle;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
+/*--------------------------------- menu end */
