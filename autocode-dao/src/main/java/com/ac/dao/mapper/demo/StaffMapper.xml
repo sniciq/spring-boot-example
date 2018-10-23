@@ -63,7 +63,7 @@
         </if>
     </select>
 
-    <select id="selectLimitCount" parameterType="com.ac.dao.entity.StaffEty" resultType="long">
+    <select id="selectCount" parameterType="com.ac.dao.entity.StaffEty" resultType="long">
         SELECT count(1) from staff
         <where>
             <if test="id != null "> AND id=#{id}</if>

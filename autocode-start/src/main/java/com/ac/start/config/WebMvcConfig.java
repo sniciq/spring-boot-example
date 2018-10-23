@@ -53,7 +53,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/resources/**", "/directive/**", "/app/**", "/module/**")
+                .addResourceHandler("/resources/**", "/directive/**", "/app/**", "/modules/**")
                 .addResourceLocations("classpath:/static/", "classpath:/static/directive/", "classpath:/static/app/", "classpath:/static/modules/")
                 .setCachePeriod(3600)
                 .resourceChain(true)

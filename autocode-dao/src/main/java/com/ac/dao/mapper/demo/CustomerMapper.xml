@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ac.dao.mapper.demo.CustomerMapper">
+
+    <insert id="insert" parameterType="com.ac.dao.entity.CustomerEty">
+		insert into customer(
+			id,name,phone,address)
+		values (
+			#{id},#{name},#{phone},#{address}
+		)
+	</insert>
+
+    <select id="selectById" parameterType="int" resultType="com.ac.dao.entity.CustomerEty">
+		select * from customer where id=#{value}
+	</select>
+
+    <delete id="deleteById" parameterType="int">
+		DELETE FROM customer WHERE id=#{value}
+	</delete>
+
+    <select id="selectByEntity" parameterType="com.ac.dao.entity.CustomerEty" resultType="com.ac.dao.entity.CustomerEty">
+        SELECT * from customer
+        <where>
+            <if test="id != null "> AND id=#{id}</if>
+            <if test="name != null  and name != ''"> AND name=#{name}</if>
+            <if test="phone != null  and phone != ''"> AND phone=#{phone}</if>
+            <if test="address != null  and address != ''"> AND address=#{address}</if>
+        </where>
+        <if test="extLimit == null"> order by id desc</if>
+        <if test="extLimit != null">
+            <if test="extLimit.sort == null"> order by id desc</if>
+            <if test="extLimit.sort != null"> order by ${extLimit.sort} ${extLimit.dir}</if>
+            <if test="extLimit.limit != null"> limit ${extLimit.start}, ${extLimit.limit}</if>
+        </if>
+    </select>
+
+    <update id="updateById" parameterType="com.ac.dao.entity.CustomerEty">
+        UPDATE customer
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="phone != null">phone=#{phone},</if>
+            <if test="address != null">address=#{address},</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectByLimit" parameterType="com.ac.dao.entity.CustomerEty" resultType="com.ac.dao.entity.CustomerEty">
+        SELECT * from customer
+        <where>
+            <if test="ety.id != null "> AND id=#{ety.id}</if>
+            <if test="ety.name != null  and ety.name != ''"> AND name=#{ety.name}</if>
+            <if test="ety.phone != null  and ety.phone != ''"> AND phone=#{ety.phone}</if>
+            <if test="ety.address != null  and ety.address != ''"> AND address=#{ety.address}</if>
+        </where>
+        <if test="limit == null"> order by id desc</if>
+        <if test="limit != null">
+            <if test="limit.sort == null"> order by id desc</if>
+            <if test="limit.sort != null"> order by ${limit.sort} ${limit.dir}</if>
+            <if test="limit.limit != null"> limit ${limit.start}, ${limit.limit}</if>
+        </if>
+    </select>
+
+    <select id="selectCount" parameterType="com.ac.dao.entity.CustomerEty" resultType="java.lang.Integer">
+        SELECT count(1) from customer
+        <where>
+            <if test="id != null "> AND id=#{id}</if>
+            <if test="name != null  and name != ''"> AND name=#{name}</if>
+            <if test="phone != null  and phone != ''"> AND phone=#{phone}</if>
+            <if test="address != null  and address != ''"> AND address=#{address}</if>
+        </where>
+    </select>
+</mapper>

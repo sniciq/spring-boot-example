@@ -59,24 +59,24 @@ public class AppCtrl {
         route.put("name", "客户管理");
         route.put("ctrl", "CustomerCtrl");
         route.put("path", "/admin/Customer");
-        route.put("templateUrl", request.getContextPath() + "/templates/admin/CustomerListTpl.html?v=");
-        route.put("files", request.getContextPath() + "/ctrl/admin/CustomerCtrl.js");
+        route.put("templateUrl", request.getContextPath() + "/modules/admin/CustomerListTpl.html?v=");
+        route.put("files", request.getContextPath() + "/modules/admin/CustomerCtrl.js");
 
         route = Maps.newHashMap();
         routeList.add(route);
         route.put("name", "员工客户统计");
         route.put("ctrl", "UserCustomerCtrl");
         route.put("path", "/module/UserCustomer");
-        route.put("templateUrl", request.getContextPath() + "/templates/module/UserCustomerListTpl.html?v=");
-        route.put("files", request.getContextPath() + "/ctrl/module/UserCustomerCtrl.js");
+        route.put("templateUrl", request.getContextPath() + "/modules/module/UserCustomerListTpl.html?v=");
+        route.put("files", request.getContextPath() + "/modules/module/UserCustomerCtrl.js");
 
         route = Maps.newHashMap();
         routeList.add(route);
         route.put("name", "员工管理");
         route.put("ctrl", "StaffCtrl");
         route.put("path", "/admin/staff");
-        route.put("templateUrl", request.getContextPath() + "/templates/admin/StaffListTpl.html?v=");
-        route.put("files", request.getContextPath() + "/ctrl/admin/StaffCtrl.js");
+        route.put("templateUrl", request.getContextPath() + "/modules/admin/StaffListTpl.html?v=");
+        route.put("files", request.getContextPath() + "/modules/admin/StaffCtrl.js");
         return routeList;
     }
 

@@ -49,7 +49,7 @@
             function($routeProvider,$routeParams) {
                 $routeProvider.
                 when('/home', {
-                    templateUrl: ctx + '/module/home.html?v=' + sysVersion,
+                    templateUrl: ctx + '/modules/home.html?v=' + sysVersion,
                     controller: 'HomeCtrl'
                 })
             }]);

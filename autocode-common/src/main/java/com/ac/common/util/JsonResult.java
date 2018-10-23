@@ -28,6 +28,10 @@ public class JsonResult<T> {
         return new JsonResult<T>();
     }
 
+    public static<T> JsonResult<T> success(T data) {
+        return new JsonResult<T>(data);
+    }
+
     public static<T> JsonResult<T> success(String msg) {
         return new JsonResult<T>(msg);
     }
@@ -45,6 +49,12 @@ public class JsonResult<T> {
         r.setSuccess(false);
         return r;
     }
+
+    public static<T> JsonResultPager<T> pager(T dataList, long total) {
+        JsonResultPager pager = new JsonResultPager(dataList, total);
+        return pager;
+    }
+
     public T getData() {
         return data;
     }

@@ -2,21 +2,21 @@ package com.ac.common.util;
 
 public class JsonResultPager<T> extends JsonResult {
 
-    public JsonResultPager(T data, int total) {
+    public JsonResultPager(T data, long total) {
         PageData pageData = new PageData(data, total);
         setData(pageData);
     }
 
     class PageData {
-        private int total;
+        private long total;
         private T data;
 
-        public PageData(T data, int total) {
+        public PageData(T data, long total) {
             this.data = data;
             this.total = total;
         }
 
-        public int getTotal() {
+        public long getTotal() {
             return total;
         }
 
