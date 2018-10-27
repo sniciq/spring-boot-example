@@ -9,10 +9,10 @@ public class JsonResultPager<T> extends JsonResult {
 
     class PageData {
         private long total;
-        private T data;
+        private T invdata;
 
         public PageData(T data, long total) {
-            this.data = data;
+            this.invdata = data;
             this.total = total;
         }
 
@@ -24,12 +24,16 @@ public class JsonResultPager<T> extends JsonResult {
             this.total = total;
         }
 
-        public T getData() {
-            return data;
+        public void setTotal(long total) {
+            this.total = total;
         }
 
-        public void setData(T data) {
-            this.data = data;
+        public T getInvdata() {
+            return invdata;
+        }
+
+        public void setInvdata(T invdata) {
+            this.invdata = invdata;
         }
     }
 }

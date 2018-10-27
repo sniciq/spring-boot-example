@@ -13,9 +13,9 @@ public class DataSourceConfig {
     public DataSource dataSourceDB() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/bootstrapdemo?useUnicode=true&characterEncoding=utf-8");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/bootstrapdemo?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
         dataSource.setUsername("root");
-        dataSource.setPassword("123456");
+        dataSource.setPassword("Admin123");
         dataSource.setMaxIdle(20);
         dataSource.setInitialSize(3);
         dataSource.setValidationQuery("select now()");

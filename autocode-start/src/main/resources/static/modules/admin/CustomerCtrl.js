@@ -1,11 +1,14 @@
 angular.module('myApp').controller('CustomerCtrl', function($scope, $uibModal, $http, $anchorScroll, confirmDialogs){
     $scope.pagination = {start: 0, limit: 20, maxSize: 8, currentPage: 1, limitOptions:[10,20,50,100]};
-    $scope.searchForm = {extLimit: $scope.pagination};
+    $scope.searchForm = {};
 
     $scope.search = function() {
         $anchorScroll();
-        $scope.promise = $http.post('/admin/CustomerCtrl/search', $scope.searchForm).success(function(data){
-            $scope.dataList = data;
+        $scope.promise = $http.post(
+            '/admin/CustomerCtrl/search',
+            {data:$scope.searchForm, extLimit:$scope.pagination}
+        ).success(function(data){
+            $scope.dataList = data.data;
         });
     };
     $scope.pageChanged = function() {
@@ -16,7 +19,7 @@ angular.module('myApp').controller('CustomerCtrl', function($scope, $uibModal, $
     $scope.clearSearch = function() {
         $scope.pagination.start = 0;
         $scope.pagination.currentPage = 1;
-        $scope.searchForm = {extLimit: $scope.pagination};
+        $scope.searchForm = {};
         $scope.search();
     }
 
@@ -27,7 +30,7 @@ angular.module('myApp').controller('CustomerCtrl', function($scope, $uibModal, $
         }
 
         $uibModal.open({
-            templateUrl: '/templates/admin/CustomerEditTpl.html?v=',
+            templateUrl: '/modules/admin/CustomerEditTpl.html?v=',
             controller: 'CustomerEditCtrl',
             backdrop: 'static',
             resolve: {

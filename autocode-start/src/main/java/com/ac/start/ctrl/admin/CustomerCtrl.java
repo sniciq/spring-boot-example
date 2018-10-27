@@ -1,5 +1,6 @@
 package com.ac.start.ctrl.admin;
 
+import com.ac.common.util.CommonForm;
 import com.ac.common.util.JsonResult;
 import com.ac.common.util.Limit;
 import com.ac.dao.entity.CustomerEty;
@@ -30,12 +31,10 @@ public class CustomerCtrl {
      */
     @ResponseBody
     @RequestMapping(value="search")
-    public JsonResult search() throws Exception {
-//        @RequestBody CustomerEty customerEty, @RequestBody Limit limit
-//        long count = customerMapper.selectCount(customerEty);
-//        List<CustomerEty> list = customerMapper.selectByLimit(customerEty, limit);
-//        return JsonResult.pager(list, count);
-        return JsonResult.success();
+    public JsonResult search(@RequestBody CommonForm<CustomerEty> form) throws Exception {
+        int count = customerMapper.selectCount(form.getData());
+        List<CustomerEty> list = customerMapper.selectByLimit(form.getData(), form.getExtLimit());
+        return JsonResult.pager(list, count);
     }
 
     /**

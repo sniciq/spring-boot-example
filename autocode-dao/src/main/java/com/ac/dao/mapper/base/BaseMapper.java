@@ -54,7 +54,7 @@ public interface BaseMapper<T> {
      * @param t
      * @return
      */
-    Long selectCount(T t);
+    Integer selectCount(T t);
 
     /**
      * 按分页查询

@@ -10,11 +10,11 @@
 		)
 	</insert>
 
-    <select id="selectById" parameterType="int" resultType="com.ac.dao.entity.CustomerEty">
+    <select id="selectById" parameterType="long" resultType="com.ac.dao.entity.CustomerEty">
 		select * from customer where id=#{value}
 	</select>
 
-    <delete id="deleteById" parameterType="int">
+    <delete id="deleteById" parameterType="long">
 		DELETE FROM customer WHERE id=#{value}
 	</delete>
 
