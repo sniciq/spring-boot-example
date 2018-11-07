@@ -19,10 +19,12 @@
         <dependency>
             <groupId>autocode</groupId>
             <artifactId>autocode-service</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>autocode</groupId>
             <artifactId>autocode-dao</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
