@@ -18,6 +18,11 @@
     <dependencies>
         <dependency>
             <groupId>autocode</groupId>
+            <artifactId>autocode-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>autocode</groupId>
             <artifactId>autocode-service</artifactId>
             <version>${project.version}</version>
         </dependency>

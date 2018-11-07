@@ -10,9 +10,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="autocode-common" />
     <orderEntry type="module" module-name="autocode-service" />
     <orderEntry type="module" module-name="autocode-dao" />
-    <orderEntry type="module" module-name="autocode-common" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.0.8.RELEASE" level="project" />
