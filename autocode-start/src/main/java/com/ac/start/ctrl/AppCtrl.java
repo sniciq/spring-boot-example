@@ -20,6 +20,12 @@ import java.util.Map;
 @Controller
 public class AppCtrl {
 
+    @ResponseBody
+    @RequestMapping("/readiness_check")
+    public String readinessCheck() {
+        return "ok";
+    }
+
     @RequestMapping("/")
     public String app(HttpServletRequest request) {
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmSSS");

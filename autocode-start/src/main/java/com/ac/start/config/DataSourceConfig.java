@@ -13,7 +13,8 @@ public class DataSourceConfig {
     public DataSource dataSourceDB() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/bootstrapdemo?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+//        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/bootstrapdemo?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dataSource.setUrl("jdbc:mysql://google/autocode?cloudSqlInstance=autocode-221709:asia-east2:autocode&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user=root&password=Admin123&useSSL=false");
         dataSource.setUsername("root");
         dataSource.setPassword("Admin123");
         dataSource.setMaxIdle(20);
